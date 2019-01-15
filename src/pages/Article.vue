@@ -5,7 +5,6 @@
 
 <script>
 const url = "https://www.interaction-design.org/widgets/articles?ep=usabilitygeek";
-const loadmoreUrl = "https://www.interaction-design.org/widgets/articles/load-more/the-power-of-white-space?ep=usabilitygeek";
 
 export default {
   name: "Article",
