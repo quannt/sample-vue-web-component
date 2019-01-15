@@ -41,7 +41,14 @@ export default {
   font-stretch: condensed;
   text-transform: uppercase;
   color: #404040;
+  display: table-cell;
   border-bottom: 1px solid #009cde;
+
+  &:after {
+    content: "";
+    display: table-cell;
+    width: 100%;
+  }
 }
 
 .articlesWidget__articles {
@@ -69,6 +76,7 @@ export default {
         height: 22px;
         width: 22px;
         flex-shrink: 0;
+        transition: transform .25s cubic-bezier(.175,.885,.32,1.275);
       }
 
       display: flex;
@@ -85,6 +93,19 @@ export default {
         color: #848484;
       }
     }
+
+    &:hover {
+      background-color: #f9f9f9;
+
+
+      .article__fulltext {
+        &:after {
+          transform: translateX(5px);
+        }
+      }
+    }
+    transition: background-color .21s cubic-bezier(.455,.03,.515,.955);
+
   }
 }
 
