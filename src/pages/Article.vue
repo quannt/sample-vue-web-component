@@ -103,6 +103,7 @@ export default {
       font-size: 16px;
       line-height: 1.25;
       color: #404040;
+      width: 100%;
     }
 
     .article__fulltext {
@@ -119,6 +120,7 @@ export default {
 
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .article__title {
