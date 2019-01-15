@@ -64,6 +64,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/scss/normalize";
+
 .articlesWidget {
   padding: 0 10px;
 }
