@@ -1,28 +1,121 @@
 <template>
-  <div class="container">
-    <section class="header">
-       <img src='../assets/idf-logo-full.svg' />
-    </section>
-    <section>UX Daily is the world’s largest free online 
-        resource on UX Design by the Interaction Design Foundation. Become a member and get 3 months free!
-    </section>
+  <div class="container" v-html="this.htmlContent">
   </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
+const url = "https://www.interaction-design.org/widgets/articles?ep=usabilitygeek";
 
 export default {
-  name: 'Article',
+  name: "Article",
   components: {
-    HelloWorld
+
+  },
+  data() {
+    return {
+      htmlContent: ""
+    }
+  },
+  mounted()  {
+    window.fetch(url).then((response) => {
+      return response.text()
+    }).then((body) => {
+      this.htmlContent = body;
+    })
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.header {
-    padding: 10.2px 50px 20.9px 50px;
+<style lang="scss">
+.articlesWidget {
+  padding: 0 10px;
+}
+.articlesWidget__logo {
+  display: flex;
+  justify-content: center;
 }
 
+.articlesWidget__header {
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: condensed;
+  text-transform: uppercase;
+  color: #404040;
+  border-bottom: 1px solid #009cde;
+}
+
+.articlesWidget__articles {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  .article {
+    display: flex;
+    padding: 10px;
+    border-top: 2px solid #dddddd;
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 1.25;
+      color: #404040;
+    }
+
+    .article__fulltext {
+      &:after {
+        display: block;
+        content: ' ';
+        background-image: url('../assets/image/angle-right.svg');
+        background-size: 22px 22px;
+        height: 22px;
+        width: 22px;
+        flex-shrink: 0;
+      }
+
+      display: flex;
+      align-items: center;
+    }
+
+    .article__title {
+      display: flex;
+      flex-direction: column;
+
+      .article__publishedTime {
+        font-size: 10px;
+        font-stretch: condensed;
+        color: #848484;
+      }
+    }
+  }
+}
+
+.articlesWidget__loadMore {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+
+  button {
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    background-color: #dddddd;
+
+    font-size: 14px;
+    font-stretch: condensed;
+    text-align: center;
+    color: #404040;
+    padding: 8px 23px;
+  }
+}
+
+.articlesWidget__text {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #404040;
+
+  a {
+    text-decoration: none;
+    color: #009cde;
+  }
+}
 </style>
