@@ -1,10 +1,11 @@
 <template>
-  <div class="container" v-html="this.htmlContent">
+  <div class="container" v-html="this.htmlContent" @click="handleContainerClick">
   </div>
 </template>
 
 <script>
 const url = "https://www.interaction-design.org/widgets/articles?ep=usabilitygeek";
+const loadmoreUrl = "https://www.interaction-design.org/widgets/articles/load-more/the-power-of-white-space?ep=usabilitygeek";
 
 export default {
   name: "Article",
@@ -13,15 +14,52 @@ export default {
   },
   data() {
     return {
-      htmlContent: ""
+      htmlContent: "",
+      lastSlug: ""
     }
   },
   mounted()  {
-    window.fetch(url).then((response) => {
-      return response.text()
-    }).then((body) => {
-      this.htmlContent = body;
-    })
+    this.fetchInitialArticles();
+  },
+  methods: {
+    fetchInitialArticles () {
+      window.fetch(url).then((response) => {
+        return response.text()
+      }).then((body) => {
+        this.htmlContent = body;
+        this.lastSlug = this.getLastArticleSlug(body);
+      })
+    },
+    handleContainerClick (e) {
+      if (e.target.type === 'button') {
+        this.handleLoadMoreArticle();
+      }
+    },
+    handleLoadMoreArticle () {
+      window.fetch(`https://www.interaction-design.org/widgets/articles/load-more/${this.lastSlug}?ep=usabilitygeek`)
+      .then((response) => {
+        return response.text()
+      })
+      .then((body) => {
+        // append the new articles list
+        const newArticles = document.createElement('li');
+        newArticles.innerHTML = body;
+
+        const wrapper= document.createElement('div');
+        wrapper.innerHTML = this.htmlContent;
+        wrapper.querySelector('.articlesWidget__articles').append(newArticles);
+        this.htmlContent = wrapper.innerHTML;
+
+        // Update the last slug
+        this.lastSlug = this.getLastArticleSlug(body);
+      })
+    },
+    getLastArticleSlug(htmlContent) {
+      const wrapper= document.createElement('div');
+      wrapper.innerHTML = htmlContent;
+      const lastArticleUrl = wrapper.querySelector('.article:last-child a').href;
+      return lastArticleUrl.split("/").pop().split("?")[0];
+    }
   }
 }
 </script>
