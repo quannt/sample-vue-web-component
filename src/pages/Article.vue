@@ -1,20 +1,40 @@
 <template>
-  <div class="container" v-html="this.htmlContent" @click="handleContainerClick">
+  <div>
+    <content-loader
+      :height="160"
+      :width="400"
+      :speed="2"
+      primaryColor="#f3f3f3"
+      secondaryColor="#ecebeb"
+      v-show="isLoading"
+    >
+      <rect x="88.5" y="17.2" rx="0" ry="0" width="230.46" height="46" />
+      <rect x="40.5" y="83.2" rx="0" ry="0" width="323" height="7" />
+      <rect x="40.5" y="104.2" rx="0" ry="0" width="323" height="7" />
+      <rect x="40.5" y="124.2" rx="0" ry="0" width="323" height="7" />
+      <rect x="39.5" y="141.2" rx="0" ry="0" width="323" height="7" />
+    </content-loader>
+    <div class="container" v-html="this.htmlContent" @click="handleContainerClick">
+    </div>
   </div>
 </template>
 
 <script>
+import { ContentLoader } from "vue-content-loader"
+
 const url = "https://www.interaction-design.org/widgets/articles?ep=usabilitygeek";
 
 export default {
   name: "Article",
   components: {
-
+    ContentLoader
   },
   data() {
     return {
       htmlContent: "",
-      lastSlug: ""
+      lastSlug: "",
+      isLoading: true,
+      isLoadingMore: false
     }
   },
   mounted()  {
@@ -22,11 +42,15 @@ export default {
   },
   methods: {
     fetchInitialArticles () {
+      this.isLoading = true;
       window.fetch(url).then((response) => {
         return response.text()
       }).then((body) => {
         this.htmlContent = body;
         this.lastSlug = this.getLastArticleSlug(body);
+        this.isLoading = false;
+      }).catch(() => {
+        this.isLoading = false;
       })
     },
     handleContainerClick (e) {
@@ -35,9 +59,14 @@ export default {
       }
     },
     handleLoadMoreArticle () {
+      if (this.isLoadingMore) {
+        return;
+      }
+      this.isLoadingMore = true;
       window.fetch(`https://www.interaction-design.org/widgets/articles/load-more/${this.lastSlug}?ep=usabilitygeek`)
       .then((response) => {
-        return response.text()
+        this.isLoadingMore = false;
+        return response.text();
       })
       .then((body) => {
         // append the new articles list
@@ -51,6 +80,9 @@ export default {
 
         // Update the last slug
         this.lastSlug = this.getLastArticleSlug(body);
+      })
+      .catch(() => {
+        this.isLoadingMore = false;
       })
     },
     getLastArticleSlug(htmlContent) {
