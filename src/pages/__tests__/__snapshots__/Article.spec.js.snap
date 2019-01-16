@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article.vue renders articles list snapshot correctly 1`] = `
+<div>
+  <content-loader-stub
+    animate="true"
+    height="160"
+    preserveaspectratio="xMidYMid meet"
+    primarycolor="#f3f3f3"
+    secondarycolor="#ecebeb"
+    speed="2"
+    width="400"
+  >
+    <rect
+      height="46"
+      rx="0"
+      ry="0"
+      width="230.46"
+      x="88.5"
+      y="17.2"
+    />
+     
+    <rect
+      height="7"
+      rx="0"
+      ry="0"
+      width="323"
+      x="40.5"
+      y="83.2"
+    />
+     
+    <rect
+      height="7"
+      rx="0"
+      ry="0"
+      width="323"
+      x="40.5"
+      y="104.2"
+    />
+     
+    <rect
+      height="7"
+      rx="0"
+      ry="0"
+      width="323"
+      x="40.5"
+      y="124.2"
+    />
+     
+    <rect
+      height="7"
+      rx="0"
+      ry="0"
+      width="323"
+      x="39.5"
+      y="141.2"
+    />
+  </content-loader-stub>
+   
+  <div
+    class="container"
+  >
+    <div
+      class="articlesWidget"
+    >
+      
+    
+      <div
+        class="articlesWidget__logo"
+      >
+        
+        
+        <img
+          alt="IDF logo"
+          src="https://public-media.interaction-design.org/images/idf-logo-full.svg"
+          width="200px"
+        />
+        
+    
+      </div>
+      
+    
+      <h2
+        class="articlesWidget__header"
+      >
+        Latest UX daily articles
+      </h2>
+      
+    
+      <ul
+        class="articlesWidget__articles"
+      >
+        
+                    
+        <li
+          class="article"
+        >
+          
+    
+          <a
+            class="article__link"
+            href="https://www.interaction-design.org/literature/article/don-t-make-me-think-key-learning-points-for-ux-design-for-the-web?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+            target="_blank"
+          >
+            
+        
+            <div
+              class="article__fulltext"
+            >
+              
+            
+              <div
+                class="article__title"
+              >
+                
+                Don’t Make Me Think – Key Learning Points for UX Design for the Web
+                
+                <time
+                  class="article__publishedTime"
+                  datetime="1547564400"
+                >
+                  
+                    1 hour ago
+                
+                </time>
+                
+            
+              </div>
+              
+        
+            </div>
+            
+    
+          </a>
+          
+
+        </li>
+        
+                    
+        <li
+          class="article"
+        >
+          
+    
+          <a
+            class="article__link"
+            href="https://www.interaction-design.org/literature/article/the-basics-of-recruiting-users-for-usability-testing?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+            target="_blank"
+          >
+            
+        
+            <div
+              class="article__fulltext"
+            >
+              
+            
+              <div
+                class="article__title"
+              >
+                
+                The Basics of Recruiting Users for Usability Testing
+                
+                <time
+                  class="article__publishedTime"
+                  datetime="1547553600"
+                >
+                  
+                    4 hours ago
+                
+                </time>
+                
+            
+              </div>
+              
+        
+            </div>
+            
+    
+          </a>
+          
+
+        </li>
+        
+                    
+        <li
+          class="article"
+        >
+          
+    
+          <a
+            class="article__link"
+            href="https://www.interaction-design.org/literature/article/7-ux-deliverables-what-will-i-be-making-as-a-ux-designer?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+            target="_blank"
+          >
+            
+        
+            <div
+              class="article__fulltext"
+            >
+              
+            
+              <div
+                class="article__title"
+              >
+                
+                7 UX Deliverables: What will I be making as a UX designer?
+                
+                <time
+                  class="article__publishedTime"
+                  datetime="1547553600"
+                >
+                  
+                    4 hours ago
+                
+                </time>
+                
+            
+              </div>
+              
+        
+            </div>
+            
+    
+          </a>
+          
+
+        </li>
+        
+                    
+        <li
+          class="article"
+        >
+          
+    
+          <a
+            class="article__link"
+            href="https://www.interaction-design.org/literature/article/when-should-i-conduct-usability-testing-for-a-product?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+            target="_blank"
+          >
+            
+        
+            <div
+              class="article__fulltext"
+            >
+              
+            
+              <div
+                class="article__title"
+              >
+                
+                When Should I Conduct Usability Testing for a Product?
+                
+                <time
+                  class="article__publishedTime"
+                  datetime="1547550000"
+                >
+                  
+                    5 hours ago
+                
+                </time>
+                
+            
+              </div>
+              
+        
+            </div>
+            
+    
+          </a>
+          
+
+        </li>
+        
+            
+      </ul>
+      
+
+    
+      <div
+        class="articlesWidget__loadMore"
+      >
+        
+        
+        <button
+          type="button"
+        >
+          Load more articles
+        </button>
+        
+    
+      </div>
+      
+
+    
+      <div
+        class="articlesWidget__text"
+      >
+        
+        UX Daily is the world's largest free online resource on UX Design by the
+        
+        <a
+          href="https://www.interaction-design.org/invite?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+          target="_blank"
+        >
+          Interaction Design Foundation
+        </a>
+        .
+
+        Become a member and
+        
+        <a
+          href="https://www.interaction-design.org/invite?ep=usabilitygeek&utm_source=uxdailywidget&utm_medium=widget&utm_campaign=partners&utm_content=usabilitygeek"
+          target="_blank"
+        >
+          
+            get 3 months free
+        </a>
+        !
+            
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+`;

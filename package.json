@@ -5,21 +5,32 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "npm run lint && npm run test:unit",
     "lint": "vue-cli-service lint",
-    "build:wc": "vue-cli-service build --target wc --name idf-widget src/pages/Article.vue"
+    "build:wc": "vue-cli-service build --target wc --name idf-widget src/pages/Article.vue",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.2.3",
     "@vue/web-component-wrapper": "^1.2.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.21",
-    "vue-content-loader": "^0.2.1"
+    "vue-content-loader": "^0.2.1",
+    "vue-jest": "^3.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
     "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-plugin-unit-jest": "^3.3.0",
     "@vue/cli-service": "^3.3.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
@@ -27,7 +38,8 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "jest": true
     },
     "extends": [
       "plugin:vue/essential",
@@ -47,5 +59,42 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue",
+      "jsx"
+    ],
+    "watchman": false,
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/$1",
+      "^~~/(.*)$": "<rootDir>/$1",
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "^.+\\.vue$": "vue-jest",
+      ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue",
+      "jest-serializer-vue"
+    ],
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "<rootDir>/components/**/*.vue",
+      "<rootDir>/pages/*.vue"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(timeago.js)/)"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+    ],
+    "testURL": "http://localhost/"
+  }
 }

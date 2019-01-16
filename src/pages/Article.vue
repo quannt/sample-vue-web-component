@@ -43,7 +43,7 @@ export default {
   methods: {
     fetchInitialArticles () {
       this.isLoading = true;
-      window.fetch(url).then((response) => {
+      fetch(url).then((response) => {
         return response.text()
       }).then((body) => {
         this.htmlContent = body;
@@ -63,7 +63,7 @@ export default {
         return;
       }
       this.isLoadingMore = true;
-      window.fetch(`https://www.interaction-design.org/widgets/articles/load-more/${this.lastSlug}?ep=usabilitygeek`)
+      fetch(`https://www.interaction-design.org/widgets/articles/load-more/${this.lastSlug}?ep=usabilitygeek`)
       .then((response) => {
         this.isLoadingMore = false;
         return response.text();
