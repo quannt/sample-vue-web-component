@@ -1,5 +1,10 @@
 ## IDF Front-End Code Challenge by @quannt
 
+<p align="center">
+    <img src="https://i.imgur.com/EFfkDjO.png" width="800px"
+    >
+</p>
+
 The widget is built using [Vuejs] and compiled into a webcomponent using [Vue CLI Service].
 
 The final build files is under `dist` folder. You can serve `index.html` from localhost to see the widget in action.
