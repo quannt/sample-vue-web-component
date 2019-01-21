@@ -1,4 +1,4 @@
-## IDF Front-End Code Challenge by @quannt
+## A sample web component built by vuejs by @quannt
 
 <p align="center">
     <img src="https://i.imgur.com/EFfkDjO.png" width="800px"
